@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox.data
+package com.sandbox.data.model
 
 import com.google.gson.annotations.SerializedName
 

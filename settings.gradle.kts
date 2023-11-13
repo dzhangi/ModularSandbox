@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ModularSandbox"
 include(":app")
- 
+include(":data")
