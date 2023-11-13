@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox
+package com.sandbox.modularsandbox.ui.screen.first
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,22 +14,26 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sandbox.modularsandbox.ui.theme.ModularSandboxTheme
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class FirstFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        return ComposeView(requireContext()).apply {
+        // requireActivity() needs to make @AndroidEntryPoint works
+        return ComposeView(requireActivity()).apply {
             setContent {
                 ModularSandboxTheme {
                     Surface {
-                        SimpleButton {
-                            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(234)
+                        SimpleButton(text = "Go to second fragment") {
+                            val action =
+                                FirstFragmentDirections.actionFirstFragmentToSecondFragment(234)
                             findNavController().navigate(action)
                         }
                     }
@@ -41,12 +45,13 @@ class FirstFragment : Fragment() {
 
 @Composable
 fun SimpleButton(
+    text: String,
     onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
         modifier = Modifier.wrapContentSize()
     ) {
-        Text(text = "Go Somewhere")
+        Text(text = text)
     }
 }
