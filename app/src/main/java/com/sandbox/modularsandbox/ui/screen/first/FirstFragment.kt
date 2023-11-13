@@ -46,11 +46,13 @@ class FirstFragment : Fragment() {
 @Composable
 fun SimpleButton(
     text: String,
+    enabled: Boolean = true,
     onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier.wrapContentSize()
+        modifier = Modifier.wrapContentSize(),
+        enabled = enabled,
     ) {
         Text(text = text)
     }

@@ -1,6 +1,7 @@
 package com.sandbox.modularsandbox.ui.screen.second
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +29,7 @@ fun SecondScreen(
                 SimpleButton(text = "Fetch random joke from API") {
                     viewModel.fetchRandomJoke()
                 }
+                if (uiState.isLoading) CircularProgressIndicator()
                 Text(text = uiState.joke)
             }
         }

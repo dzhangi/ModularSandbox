@@ -21,13 +21,15 @@ class SecondViewModel @Inject constructor(
 
     fun fetchRandomJoke() {
         viewModelScope.launch {
+            _state.update { state -> state.loadingState() }
             runCatching { jokeApi.fetchJoke() }
-                .onFailure { Log.e("TEST", it.message ?: "Error fetching joke", it) }
-                .onSuccess { _state.update { state -> state.copy(joke = it.value)  } }
+                .onFailure {
+                    Log.e("TEST", it.message ?: "Error fetching joke", it)
+                    _state.update { state -> state.errorState() }
+                }
+                .onSuccess {
+                    _state.update { state -> state.successState(it.value) }
+                }
         }
     }
 }
-
-data class SecondFragmentUIState(
-    val joke: String = "",
-)
