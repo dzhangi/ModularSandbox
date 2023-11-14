@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
@@ -11,11 +11,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sandbox.modularsandbox"
         minSdk = 29
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -91,8 +88,4 @@ dependencies {
     //Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
-    implementation(project(mapOf("path" to ":data")))
-    implementation(project(mapOf("path" to ":feature:splash")))
-    implementation(project(mapOf("path" to ":feature:login")))
 }
