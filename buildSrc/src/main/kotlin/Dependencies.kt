@@ -1,3 +1,4 @@
+import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 object Dependencies {
@@ -10,8 +11,18 @@ object Dependencies {
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
-    const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
+    const val loggingInterceptor =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
 
+    const val composeActivity = "androidx.activity:activity-compose:${Versions.composeActivity}"
+    const val composeUi = "androidx.compose.ui:ui"
+    const val composeUiGraphics = "androidx.compose.ui:ui-graphics"
+    const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
+    const val composeMaterial3 = "androidx.compose.material3:material3"
+    const val composeLifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeLifeCycle}"
+    const val composeUiTestJunit4 = "androidx.compose.ui:ui-test-junit4"
+    const val composeUiTooling = "androidx.compose.ui:ui-tooling"
+    const val composeUiTestManifest = "androidx.compose.ui:ui-test-manifest"
 }
 
 fun DependencyHandler.navigation() {
@@ -22,4 +33,25 @@ fun DependencyHandler.navigation() {
 fun DependencyHandler.hilt() {
     impl(Dependencies.hilt)
     kapt(Dependencies.hiltCompiler)
+}
+
+fun DependencyHandler.retrofit() {
+    impl(Dependencies.retrofit)
+    impl(Dependencies.converterGson)
+    impl(Dependencies.loggingInterceptor)
+}
+
+fun DependencyHandler.compose(composeBom: Dependency) {
+    impl(Dependencies.composeActivity)
+    impl(composeBom)
+    impl(Dependencies.composeUi)
+    impl(Dependencies.composeUiGraphics)
+    impl(Dependencies.composeUiToolingPreview)
+    impl(Dependencies.composeMaterial3)
+    impl(Dependencies.composeLifecycle)
+
+    androidTestImpl(composeBom)
+    androidTestImpl(Dependencies.composeUiTestJunit4)
+    debugImpl(Dependencies.composeUiTooling)
+    debugImpl(Dependencies.composeUiTestManifest)
 }
