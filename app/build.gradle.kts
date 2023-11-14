@@ -62,8 +62,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     //Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+    implementation(Dependencies.navigation)
+    implementation(Dependencies.navigationUI)
 
     //Compose
     implementation("androidx.activity:activity-compose:1.8.0")
