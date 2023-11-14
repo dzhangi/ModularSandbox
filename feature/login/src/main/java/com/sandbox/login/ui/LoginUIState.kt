@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox.ui.screen.login
+package com.sandbox.login.ui
 
 data class LoginUIState(
     val joke: String = "",

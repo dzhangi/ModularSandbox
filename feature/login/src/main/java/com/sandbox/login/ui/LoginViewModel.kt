@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox.ui.screen.login
+package com.sandbox.login.ui
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

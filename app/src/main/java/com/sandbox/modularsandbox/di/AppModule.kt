@@ -11,5 +11,4 @@ class AppModule {
 
     @Provides
     fun provideTestString() = "Dumb string for testing di"
-
 }

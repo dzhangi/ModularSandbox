@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox.ui.theme
+package com.sandbox.login.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

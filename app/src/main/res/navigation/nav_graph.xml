@@ -2,21 +2,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/TestLoginFragment">
+    app:startDestination="@id/TestSplashFragment">
 
     <fragment
         android:id="@+id/TestLoginFragment"
         android:name="com.sandbox.login.ui.TestLoginFragment"
-        android:label="Test Login Fragment"/>
+        android:label="Test Login Fragment">
+        <deepLink app:uri="android-app://com.sandbox.app/test_login_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/TestSplashFragment"
         android:name="com.sandbox.splash.ui.TestSplashFragment"
-        android:label="Test Splash Fragment">
+        android:label="Test Splash Fragment" />
 
-        <deepLink
-            app:uri="android-app://com.sandbox.app/test_splash_fragment"
-            />
-
-    </fragment>
 </navigation>
