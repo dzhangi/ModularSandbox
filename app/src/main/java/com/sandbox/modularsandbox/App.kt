@@ -5,4 +5,4 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class App : Application()
-//Dumb string for test protection rule
+//Dumb string for test
