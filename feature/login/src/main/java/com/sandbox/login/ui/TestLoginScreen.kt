@@ -1,17 +1,15 @@
 package com.sandbox.login.ui
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.sandbox.login.ui.theme.ModularSandboxTheme
+import com.sandbox.ui.component.SimpleButton
+import com.sandbox.ui.theme.ModularSandboxTheme
 
 @Composable
 fun SecondScreen(
@@ -35,20 +33,5 @@ fun SecondScreen(
                 Text(text = uiState.joke)
             }
         }
-    }
-}
-
-@Composable
-fun SimpleButton(
-    text: String,
-    enabled: Boolean = true,
-    onClick: () -> Unit,
-) {
-    Button(
-        onClick = onClick,
-        modifier = Modifier.wrapContentSize(),
-        enabled = enabled,
-    ) {
-        Text(text = text)
     }
 }

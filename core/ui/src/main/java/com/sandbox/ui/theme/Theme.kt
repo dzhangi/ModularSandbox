@@ -1,4 +1,4 @@
-package com.sandbox.splash.ui.theme
+package com.sandbox.ui.theme
 
 import android.app.Activity
 import android.os.Build
