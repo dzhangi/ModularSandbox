@@ -1,3 +1,5 @@
+import org.gradle.api.artifacts.dsl.DependencyHandler
+
 object Dependencies {
     const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
@@ -10,4 +12,14 @@ object Dependencies {
     const val converterGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.loggingInterceptor}"
 
+}
+
+fun DependencyHandler.navigation() {
+    impl(Dependencies.navigation)
+    impl(Dependencies.navigationUI)
+}
+
+fun DependencyHandler.hilt() {
+    impl(Dependencies.hilt)
+    kapt(Dependencies.hiltCompiler)
 }

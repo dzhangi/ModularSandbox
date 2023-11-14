@@ -52,8 +52,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     //Navigation
-    implementation(Dependencies.navigation)
-    implementation(Dependencies.navigationUI)
+    navigation()
 
     //Compose
     implementation("androidx.activity:activity-compose:1.8.0")
