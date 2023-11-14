@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox.ui.screen.first
+package com.sandbox.modularsandbox.ui.screen.splash
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 @AndroidEntryPoint
-class FirstFragment : Fragment() {
+class SplashFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +33,7 @@ class FirstFragment : Fragment() {
                     Surface {
                         SimpleButton(text = "Go to second fragment") {
                             val action =
-                                FirstFragmentDirections.actionFirstFragmentToSecondFragment(234)
+                                SplashFragmentDirections.actionSplashFragmentToSecondFragment(234)
                             findNavController().navigate(action)
                         }
                     }

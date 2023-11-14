@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox.ui.screen.second
+package com.sandbox.modularsandbox.ui.screen.login
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -12,11 +12,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SecondViewModel @Inject constructor(
+class LoginViewModel @Inject constructor(
     private val jokeApi: JokeApi,
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(SecondFragmentUIState())
+    private val _state = MutableStateFlow(LoginUIState())
     val state = _state.asStateFlow()
 
     fun fetchRandomJoke() {

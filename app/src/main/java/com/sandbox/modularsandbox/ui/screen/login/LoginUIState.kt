@@ -1,6 +1,6 @@
-package com.sandbox.modularsandbox.ui.screen.second
+package com.sandbox.modularsandbox.ui.screen.login
 
-data class SecondFragmentUIState(
+data class LoginUIState(
     val joke: String = "",
     val isLoading: Boolean = false,
 ) {

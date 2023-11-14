@@ -1,4 +1,4 @@
-package com.sandbox.modularsandbox.ui.screen.second
+package com.sandbox.modularsandbox.ui.screen.login
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.CircularProgressIndicator
@@ -8,14 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavController
-import com.sandbox.modularsandbox.ui.screen.first.SimpleButton
+import com.sandbox.modularsandbox.ui.screen.splash.SimpleButton
 import com.sandbox.modularsandbox.ui.theme.ModularSandboxTheme
 
 @Composable
 fun SecondScreen(
-    viewModel: SecondViewModel,
+    viewModel: LoginViewModel,
     navController: NavController,
-    args: SecondFragmentArgs,
+    args: LoginFragmentArgs,
 ) {
     val uiState by viewModel.state.collectAsState()
 
