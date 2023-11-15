@@ -1,7 +1,6 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-//    id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
 }
@@ -58,16 +57,9 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    //Navigation
-    navigation()
-
-    //Compose
-    compose(platform("androidx.compose:compose-bom:2023.03.00"))
-
-    //Hilt
     hilt()
-
-    //Retrofit
+    navigation()
+    compose(platform("androidx.compose:compose-bom:2023.03.00"))
     retrofit()
 
     //Coroutines
