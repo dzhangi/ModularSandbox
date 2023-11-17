@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TestLoginFragment : Fragment() {
+class LoginFragment : Fragment() {
     private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(

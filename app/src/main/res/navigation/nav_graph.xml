@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/TestLoginFragment"
-        android:name="com.sandbox.login.ui.TestLoginFragment"
+        android:name="com.sandbox.login.ui.LoginFragment"
         android:label="Test Login Fragment">
         <deepLink app:uri="android-app://com.sandbox.app/test_login_fragment" />
     </fragment>
