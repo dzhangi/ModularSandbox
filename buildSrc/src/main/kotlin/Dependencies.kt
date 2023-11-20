@@ -2,6 +2,20 @@ import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 object Dependencies {
+    const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
+    const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
+    const val material = "com.google.android.material:material:${Versions.material}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+
+    const val junit = "junit:junit:${Versions.junit}"
+    const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
+    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+
+    const val coroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutine}"
+    const val coroutineAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutine}"
+
     const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 
@@ -19,10 +33,29 @@ object Dependencies {
     const val composeUiGraphics = "androidx.compose.ui:ui-graphics"
     const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
     const val composeMaterial3 = "androidx.compose.material3:material3"
-    const val composeLifecycle = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeLifeCycle}"
+    const val composeLifecycle =
+        "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.composeLifeCycle}"
     const val composeUiTestJunit4 = "androidx.compose.ui:ui-test-junit4"
     const val composeUiTooling = "androidx.compose.ui:ui-tooling"
     const val composeUiTestManifest = "androidx.compose.ui:ui-test-manifest"
+}
+
+fun DependencyHandler.essentials() {
+    impl(Dependencies.androidxCore)
+    impl(Dependencies.androidxAppCompat)
+    impl(Dependencies.material)
+    impl(Dependencies.constraintLayout)
+}
+
+fun DependencyHandler.test() {
+    testImpl(Dependencies.junit)
+    androidTestImpl(Dependencies.junitExt)
+    androidTestImpl(Dependencies.espresso)
+}
+
+fun DependencyHandler.coroutines() {
+    impl(Dependencies.coroutineCore)
+    impl(Dependencies.coroutineAndroid)
 }
 
 fun DependencyHandler.navigation() {
