@@ -44,6 +44,8 @@ android {
 }
 
 dependencies {
+    essentials()
+    test()
     hilt()
     retrofit()
 }

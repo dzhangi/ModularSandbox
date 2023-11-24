@@ -5,6 +5,8 @@ object Dependencies {
     const val androidxCore = "androidx.core:core-ktx:${Versions.androidxCore}"
     const val androidxAppCompat = "androidx.appcompat:appcompat:${Versions.androidxAppCompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     const val junit = "junit:junit:${Versions.junit}"
     const val junitExt = "androidx.test.ext:junit:${Versions.junitExt}"
@@ -42,6 +44,7 @@ fun DependencyHandler.essentials() {
     impl(Dependencies.androidxCore)
     impl(Dependencies.androidxAppCompat)
     impl(Dependencies.material)
+    impl(Dependencies.constraintLayout)
 }
 
 fun DependencyHandler.test() {
