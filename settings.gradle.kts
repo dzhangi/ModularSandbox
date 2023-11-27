@@ -16,6 +16,7 @@ dependencyResolutionManagement {
 rootProject.name = "ModularSandbox"
 include(":app")
 include(":data")
-include(":feature:splash")
-include(":feature:login")
+include(":presentation:splash")
+include(":presentation:login")
 include(":core:ui")
+include(":domain:auth")

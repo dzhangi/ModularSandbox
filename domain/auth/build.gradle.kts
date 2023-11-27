@@ -1,19 +1,18 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
     kotlin("kapt")
 }
 
 android {
-    namespace = "com.sandbox.modularsandbox"
-    compileSdk = 34
+    namespace = "com.sandbox.auth"
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 29
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -32,30 +31,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.3"
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    // Allow references to generated code
-    kapt {
-        correctErrorTypes = true
-    }
 }
 
 dependencies {
-    essentials()
-    test()
     hilt()
-    navigation()
-    compose(platform("androidx.compose:compose-bom:2023.03.00"))
-    retrofit()
     coroutines()
+    test()
 
     implementation(project(mapOf("path" to ":data")))
-    implementation(project(mapOf("path" to ":core:ui")))
 }

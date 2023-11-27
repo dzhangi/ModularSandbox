@@ -1,8 +1,13 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
     kotlin("kapt")
+
+    /**
+     * ???
+     * https://stackoverflow.com/questions/70550883/warning-the-following-options-were-not-recognized-by-any-processor-dagger-f
+     */
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -10,11 +15,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.sandbox.modularsandbox"
         minSdk = 29
         targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -53,12 +55,12 @@ android {
 dependencies {
     essentials()
     test()
-    navigation()
     hilt()
-    retrofit()
+    navigation()
     compose(platform("androidx.compose:compose-bom:2023.03.00"))
+    retrofit()
     coroutines()
 
-    implementation(project(mapOf("path" to ":presentation:splash")))
-    implementation(project(mapOf("path" to ":presentation:login")))
+    implementation(project(mapOf("path" to ":domain:auth")))
+    implementation(project(mapOf("path" to ":core:ui")))
 }
