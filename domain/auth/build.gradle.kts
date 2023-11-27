@@ -36,6 +36,7 @@ android {
 dependencies {
     hilt()
     coroutines()
+    test()
 
     implementation(project(mapOf("path" to ":data")))
 }
