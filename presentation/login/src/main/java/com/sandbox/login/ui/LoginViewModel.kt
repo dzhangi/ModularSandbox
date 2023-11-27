@@ -3,7 +3,7 @@ package com.sandbox.login.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sandbox.data.repository.ChuckRepository
+import com.sandbox.auth.FetchDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val chuckRepo: ChuckRepository,
+    private val fetchDataUseCase: FetchDataUseCase,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(LoginUIState())
@@ -22,7 +22,7 @@ class LoginViewModel @Inject constructor(
     fun fetchRandomJoke() {
         viewModelScope.launch {
             _state.update { state -> state.loadingState() }
-            runCatching { chuckRepo.fetchJoke() }
+            runCatching { fetchDataUseCase() }
                 .onFailure {
                     Log.e("TEST", it.message ?: "Error fetching joke", it)
                     _state.update { state -> state.errorState() }
