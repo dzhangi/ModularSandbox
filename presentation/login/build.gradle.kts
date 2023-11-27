@@ -1,8 +1,13 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("com.google.dagger.hilt.android")
     kotlin("kapt")
+
+    /**
+     * ???
+     * https://stackoverflow.com/questions/70550883/warning-the-following-options-were-not-recognized-by-any-processor-dagger-f
+     */
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -56,6 +61,6 @@ dependencies {
     retrofit()
     coroutines()
 
-    implementation(project(mapOf("path" to ":data")))
+    implementation(project(mapOf("path" to ":domain:auth")))
     implementation(project(mapOf("path" to ":core:ui")))
 }
